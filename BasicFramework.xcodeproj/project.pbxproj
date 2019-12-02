@@ -1,0 +1,709 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A01015E23852F6600232EB1 /* SHPhotographModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A01015D23852F6600232EB1 /* SHPhotographModel.m */; };
+		7A01016523853E4400232EB1 /* SHBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A01016423853E4400232EB1 /* SHBaseCollectionViewCell.m */; };
+		7A01016823853EED00232EB1 /* SHPhotographCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A01016723853EED00232EB1 /* SHPhotographCollectionViewCell.m */; };
+		7A045B2D236FFE9C00481B05 /* SHPhotographViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A045B2C236FFE9C00481B05 /* SHPhotographViewController.m */; };
+		7A045B302370160A00481B05 /* SHPhotographViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A045B2F2370160A00481B05 /* SHPhotographViewModel.m */; };
+		7A07A379236A831000074EAF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A699F2D2369701900C5A2E8 /* AppDelegate.m */; };
+		7A07A37B236A863400074EAF /* DescriptionFile in Resources */ = {isa = PBXBuildFile; fileRef = 7A07A37A236A863400074EAF /* DescriptionFile */; };
+		7A07A37E236AB2CD00074EAF /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A07A37D236AB2CD00074EAF /* SHBaseViewController.m */; };
+		7A07A383236AB65900074EAF /* SHBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A07A382236AB65900074EAF /* SHBaseViewModel.m */; };
+		7A07A386236AB68900074EAF /* SHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A07A385236AB68900074EAF /* SHBaseModel.m */; };
+		7A07A389236AB6A300074EAF /* SHBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A07A388236AB6A300074EAF /* SHBaseView.m */; };
+		7A07A392236AD83D00074EAF /* SHMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A07A391236AD83D00074EAF /* SHMainViewController.m */; };
+		7A09D79C237CF49A0088A571 /* SHPhotographHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A09D79B237CF49A0088A571 /* SHPhotographHandler.m */; };
+		7A15997F238E064C00E5CC94 /* SHPhotographBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A15997E238E064C00E5CC94 /* SHPhotographBottomView.m */; };
+		7A33F4AC236BC17900C0D4D6 /* SHMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33F4AB236BC17900C0D4D6 /* SHMainView.m */; };
+		7A38A9CC238B770B0029EE29 /* UIColor+SHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A38A9CB238B770B0029EE29 /* UIColor+SHCategory.m */; };
+		7A699F392369701B00C5A2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A699F382369701B00C5A2E8 /* Assets.xcassets */; };
+		7A699F3C2369701B00C5A2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A699F3A2369701B00C5A2E8 /* LaunchScreen.storyboard */; };
+		7A699F3F2369701B00C5A2E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A699F3E2369701B00C5A2E8 /* main.m */; };
+		7AC6AEB82387CC6200E98524 /* SHPhotographCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6AEB72387CC6200E98524 /* SHPhotographCollectionView.m */; };
+		7AC6AEBB2387D10700E98524 /* SHPhotographListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6AEBA2387D10700E98524 /* SHPhotographListTableView.m */; };
+		7AC6AEBE2387D44500E98524 /* SHBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6AEBD2387D44500E98524 /* SHBaseTableViewCell.m */; };
+		7AC6AEC22387D58600E98524 /* SHPhotographListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6AEC12387D58600E98524 /* SHPhotographListTableViewCell.m */; };
+		7AF1F9DA23866A60008543BC /* SHBaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1F9D923866A60008543BC /* SHBaseCollectionReusableView.m */; };
+		7AF1F9DE23866BFE008543BC /* SHPhotographCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1F9DD23866BFE008543BC /* SHPhotographCollectionReusableView.m */; };
+		7F4F088835C81E3FDD4ECE99 /* libPods-BasicFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3C4DC1FA25BD2B606932EB /* libPods-BasicFramework.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04D4A15A1AD2F475887FC813 /* Pods-BasicFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicFramework.release.xcconfig"; path = "Target Support Files/Pods-BasicFramework/Pods-BasicFramework.release.xcconfig"; sourceTree = "<group>"; };
+		7A01015C23852F6600232EB1 /* SHPhotographModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographModel.h; sourceTree = "<group>"; };
+		7A01015D23852F6600232EB1 /* SHPhotographModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographModel.m; sourceTree = "<group>"; };
+		7A01016223853E1E00232EB1 /* SHBaseCollectionViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseCollectionViewCellProtocol.h; sourceTree = "<group>"; };
+		7A01016323853E4400232EB1 /* SHBaseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		7A01016423853E4400232EB1 /* SHBaseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		7A01016623853EED00232EB1 /* SHPhotographCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographCollectionViewCell.h; sourceTree = "<group>"; };
+		7A01016723853EED00232EB1 /* SHPhotographCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographCollectionViewCell.m; sourceTree = "<group>"; };
+		7A045B2B236FFE9C00481B05 /* SHPhotographViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographViewController.h; sourceTree = "<group>"; };
+		7A045B2C236FFE9C00481B05 /* SHPhotographViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographViewController.m; sourceTree = "<group>"; };
+		7A045B2E2370160A00481B05 /* SHPhotographViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographViewModel.h; sourceTree = "<group>"; };
+		7A045B2F2370160A00481B05 /* SHPhotographViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographViewModel.m; sourceTree = "<group>"; };
+		7A07A37A236A863400074EAF /* DescriptionFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = DescriptionFile; sourceTree = "<group>"; };
+		7A07A37C236AB2CD00074EAF /* SHBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseViewController.h; sourceTree = "<group>"; };
+		7A07A37D236AB2CD00074EAF /* SHBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBaseViewController.m; sourceTree = "<group>"; };
+		7A07A37F236AB39200074EAF /* SHBaseViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseViewControllerProtocol.h; sourceTree = "<group>"; };
+		7A07A381236AB65900074EAF /* SHBaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseViewModel.h; sourceTree = "<group>"; };
+		7A07A382236AB65900074EAF /* SHBaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBaseViewModel.m; sourceTree = "<group>"; };
+		7A07A384236AB68900074EAF /* SHBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseModel.h; sourceTree = "<group>"; };
+		7A07A385236AB68900074EAF /* SHBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBaseModel.m; sourceTree = "<group>"; };
+		7A07A387236AB6A300074EAF /* SHBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseView.h; sourceTree = "<group>"; };
+		7A07A388236AB6A300074EAF /* SHBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBaseView.m; sourceTree = "<group>"; };
+		7A07A38A236AB70000074EAF /* SHBaseViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseViewProtocol.h; sourceTree = "<group>"; };
+		7A07A38B236ACFC700074EAF /* SHBaseViewModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseViewModelProtocol.h; sourceTree = "<group>"; };
+		7A07A38C236ACFDF00074EAF /* SHBaseModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseModelProtocol.h; sourceTree = "<group>"; };
+		7A07A390236AD83D00074EAF /* SHMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMainViewController.h; sourceTree = "<group>"; };
+		7A07A391236AD83D00074EAF /* SHMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHMainViewController.m; sourceTree = "<group>"; };
+		7A09D79A237CF49A0088A571 /* SHPhotographHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographHandler.h; sourceTree = "<group>"; };
+		7A09D79B237CF49A0088A571 /* SHPhotographHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographHandler.m; sourceTree = "<group>"; };
+		7A15997D238E064C00E5CC94 /* SHPhotographBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographBottomView.h; sourceTree = "<group>"; };
+		7A15997E238E064C00E5CC94 /* SHPhotographBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographBottomView.m; sourceTree = "<group>"; };
+		7A26E767236A74E200128C8E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7A33F4AA236BC17900C0D4D6 /* SHMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMainView.h; sourceTree = "<group>"; };
+		7A33F4AB236BC17900C0D4D6 /* SHMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHMainView.m; sourceTree = "<group>"; };
+		7A38A9CA238B770B0029EE29 /* UIColor+SHCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+SHCategory.h"; sourceTree = "<group>"; };
+		7A38A9CB238B770B0029EE29 /* UIColor+SHCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SHCategory.m"; sourceTree = "<group>"; };
+		7A699F292369701900C5A2E8 /* BasicFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A699F2C2369701900C5A2E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7A699F2D2369701900C5A2E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7A699F382369701B00C5A2E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A699F3B2369701B00C5A2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A699F3D2369701B00C5A2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A699F3E2369701B00C5A2E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7AC6AEB62387CC6200E98524 /* SHPhotographCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographCollectionView.h; sourceTree = "<group>"; };
+		7AC6AEB72387CC6200E98524 /* SHPhotographCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographCollectionView.m; sourceTree = "<group>"; };
+		7AC6AEB92387D10700E98524 /* SHPhotographListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographListTableView.h; sourceTree = "<group>"; };
+		7AC6AEBA2387D10700E98524 /* SHPhotographListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographListTableView.m; sourceTree = "<group>"; };
+		7AC6AEBC2387D44500E98524 /* SHBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseTableViewCell.h; sourceTree = "<group>"; };
+		7AC6AEBD2387D44500E98524 /* SHBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBaseTableViewCell.m; sourceTree = "<group>"; };
+		7AC6AEBF2387D4F400E98524 /* SHBaseTableViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseTableViewCellProtocol.h; sourceTree = "<group>"; };
+		7AC6AEC02387D58600E98524 /* SHPhotographListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographListTableViewCell.h; sourceTree = "<group>"; };
+		7AC6AEC12387D58600E98524 /* SHPhotographListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographListTableViewCell.m; sourceTree = "<group>"; };
+		7ACE85FD238CF9FA005D9F3F /* Enum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enum.h; sourceTree = "<group>"; };
+		7AE3E426237D2C56004DD41A /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		7AF1F9D823866A60008543BC /* SHBaseCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseCollectionReusableView.h; sourceTree = "<group>"; };
+		7AF1F9D923866A60008543BC /* SHBaseCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBaseCollectionReusableView.m; sourceTree = "<group>"; };
+		7AF1F9DB23866B5A008543BC /* SHBaseCollectionReusableViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseCollectionReusableViewProtocol.h; sourceTree = "<group>"; };
+		7AF1F9DC23866BFE008543BC /* SHPhotographCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographCollectionReusableView.h; sourceTree = "<group>"; };
+		7AF1F9DD23866BFE008543BC /* SHPhotographCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographCollectionReusableView.m; sourceTree = "<group>"; };
+		BB7052120B58EB67550EBB26 /* Pods-BasicFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicFramework.debug.xcconfig"; path = "Target Support Files/Pods-BasicFramework/Pods-BasicFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		CB3C4DC1FA25BD2B606932EB /* libPods-BasicFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasicFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A699F262369701900C5A2E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F4F088835C81E3FDD4ECE99 /* libPods-BasicFramework.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A514EB1795E148417434D7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB7052120B58EB67550EBB26 /* Pods-BasicFramework.debug.xcconfig */,
+				04D4A15A1AD2F475887FC813 /* Pods-BasicFramework.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4CE7B82714539684BFBFBCCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB3C4DC1FA25BD2B606932EB /* libPods-BasicFramework.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A045B1D236FCAFE00481B05 /* Photograph */ = {
+			isa = PBXGroup;
+			children = (
+				7A09D799237CF4520088A571 /* Handler */,
+				7A045B20236FCB9900481B05 /* ViewModel */,
+				7A045B1F236FCB9400481B05 /* Model */,
+				7A045B1E236FCB8B00481B05 /* View */,
+				7A045B21236FCBA200481B05 /* ViewController */,
+			);
+			path = Photograph;
+			sourceTree = "<group>";
+		};
+		7A045B1E236FCB8B00481B05 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A15997D238E064C00E5CC94 /* SHPhotographBottomView.h */,
+				7A15997E238E064C00E5CC94 /* SHPhotographBottomView.m */,
+				7AC6AEB62387CC6200E98524 /* SHPhotographCollectionView.h */,
+				7AC6AEB72387CC6200E98524 /* SHPhotographCollectionView.m */,
+				7A01016623853EED00232EB1 /* SHPhotographCollectionViewCell.h */,
+				7A01016723853EED00232EB1 /* SHPhotographCollectionViewCell.m */,
+				7AF1F9DC23866BFE008543BC /* SHPhotographCollectionReusableView.h */,
+				7AF1F9DD23866BFE008543BC /* SHPhotographCollectionReusableView.m */,
+				7AC6AEB92387D10700E98524 /* SHPhotographListTableView.h */,
+				7AC6AEBA2387D10700E98524 /* SHPhotographListTableView.m */,
+				7AC6AEC02387D58600E98524 /* SHPhotographListTableViewCell.h */,
+				7AC6AEC12387D58600E98524 /* SHPhotographListTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A045B1F236FCB9400481B05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A01015C23852F6600232EB1 /* SHPhotographModel.h */,
+				7A01015D23852F6600232EB1 /* SHPhotographModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A045B20236FCB9900481B05 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7A045B2E2370160A00481B05 /* SHPhotographViewModel.h */,
+				7A045B2F2370160A00481B05 /* SHPhotographViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7A045B21236FCBA200481B05 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A045B2B236FFE9C00481B05 /* SHPhotographViewController.h */,
+				7A045B2C236FFE9C00481B05 /* SHPhotographViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7A07A38D236AD78F00074EAF /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				7A045B1D236FCAFE00481B05 /* Photograph */,
+				7A07A38E236AD80500074EAF /* Main */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		7A07A38E236AD80500074EAF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7A33F4A9236BC15C00C0D4D6 /* ViewModel */,
+				7A33F4A8236BC15300C0D4D6 /* Model */,
+				7A33F4A7236BC14A00C0D4D6 /* View */,
+				7A07A38F236AD81000074EAF /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7A07A38F236AD81000074EAF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A07A390236AD83D00074EAF /* SHMainViewController.h */,
+				7A07A391236AD83D00074EAF /* SHMainViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7A09D799237CF4520088A571 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				7A09D79A237CF49A0088A571 /* SHPhotographHandler.h */,
+				7A09D79B237CF49A0088A571 /* SHPhotographHandler.m */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		7A26E762236A70DF00128C8E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7A26E764236A70FD00128C8E /* Configuration */,
+				7A26E763236A70ED00128C8E /* AppDelegate */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		7A26E763236A70ED00128C8E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7A699F2C2369701900C5A2E8 /* AppDelegate.h */,
+				7A699F2D2369701900C5A2E8 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7A26E764236A70FD00128C8E /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				7A699F3D2369701B00C5A2E8 /* Info.plist */,
+				7A26E767236A74E200128C8E /* PrefixHeader.pch */,
+				7A07A37A236A863400074EAF /* DescriptionFile */,
+				7AE3E426237D2C56004DD41A /* Define.h */,
+				7ACE85FD238CF9FA005D9F3F /* Enum.h */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		7A26E765236A712B00128C8E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7A26E766236A713500128C8E /* Categorys */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		7A26E766236A713500128C8E /* Categorys */ = {
+			isa = PBXGroup;
+			children = (
+				7A38A9CA238B770B0029EE29 /* UIColor+SHCategory.h */,
+				7A38A9CB238B770B0029EE29 /* UIColor+SHCategory.m */,
+			);
+			path = Categorys;
+			sourceTree = "<group>";
+		};
+		7A26E768236A79B800128C8E /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				7A26E76D236A7BC200128C8E /* Protocol */,
+				7A26E76A236A7A1100128C8E /* View */,
+				7A26E76B236A7A1700128C8E /* Model */,
+				7A26E76C236A7A2000128C8E /* ViewModel */,
+				7A26E769236A79C700128C8E /* ViewController */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		7A26E769236A79C700128C8E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A07A37C236AB2CD00074EAF /* SHBaseViewController.h */,
+				7A07A37D236AB2CD00074EAF /* SHBaseViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7A26E76A236A7A1100128C8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A07A387236AB6A300074EAF /* SHBaseView.h */,
+				7A07A388236AB6A300074EAF /* SHBaseView.m */,
+				7AC6AEBC2387D44500E98524 /* SHBaseTableViewCell.h */,
+				7AC6AEBD2387D44500E98524 /* SHBaseTableViewCell.m */,
+				7A01016323853E4400232EB1 /* SHBaseCollectionViewCell.h */,
+				7A01016423853E4400232EB1 /* SHBaseCollectionViewCell.m */,
+				7AF1F9D823866A60008543BC /* SHBaseCollectionReusableView.h */,
+				7AF1F9D923866A60008543BC /* SHBaseCollectionReusableView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A26E76B236A7A1700128C8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A07A384236AB68900074EAF /* SHBaseModel.h */,
+				7A07A385236AB68900074EAF /* SHBaseModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A26E76C236A7A2000128C8E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7A07A381236AB65900074EAF /* SHBaseViewModel.h */,
+				7A07A382236AB65900074EAF /* SHBaseViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7A26E76D236A7BC200128C8E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7A07A38A236AB70000074EAF /* SHBaseViewProtocol.h */,
+				7A07A37F236AB39200074EAF /* SHBaseViewControllerProtocol.h */,
+				7A07A38B236ACFC700074EAF /* SHBaseViewModelProtocol.h */,
+				7A07A38C236ACFDF00074EAF /* SHBaseModelProtocol.h */,
+				7AC6AEBF2387D4F400E98524 /* SHBaseTableViewCellProtocol.h */,
+				7A01016223853E1E00232EB1 /* SHBaseCollectionViewCellProtocol.h */,
+				7AF1F9DB23866B5A008543BC /* SHBaseCollectionReusableViewProtocol.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7A33F4A7236BC14A00C0D4D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A33F4AA236BC17900C0D4D6 /* SHMainView.h */,
+				7A33F4AB236BC17900C0D4D6 /* SHMainView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A33F4A8236BC15300C0D4D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A33F4A9236BC15C00C0D4D6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7A699F202369701900C5A2E8 = {
+			isa = PBXGroup;
+			children = (
+				7A699F2B2369701900C5A2E8 /* BasicFramework */,
+				7A699F2A2369701900C5A2E8 /* Products */,
+				3A514EB1795E148417434D7C /* Pods */,
+				4CE7B82714539684BFBFBCCF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7A699F2A2369701900C5A2E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A699F292369701900C5A2E8 /* BasicFramework.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A699F2B2369701900C5A2E8 /* BasicFramework */ = {
+			isa = PBXGroup;
+			children = (
+				7A07A38D236AD78F00074EAF /* Module */,
+				7A26E768236A79B800128C8E /* Basic */,
+				7A26E765236A712B00128C8E /* Utils */,
+				7A26E762236A70DF00128C8E /* Other */,
+				7A699F382369701B00C5A2E8 /* Assets.xcassets */,
+				7A699F3A2369701B00C5A2E8 /* LaunchScreen.storyboard */,
+				7A699F3E2369701B00C5A2E8 /* main.m */,
+			);
+			path = BasicFramework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A699F282369701900C5A2E8 /* BasicFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A699F422369701C00C5A2E8 /* Build configuration list for PBXNativeTarget "BasicFramework" */;
+			buildPhases = (
+				6153CF497F888D602D1927F1 /* [CP] Check Pods Manifest.lock */,
+				7A699F252369701900C5A2E8 /* Sources */,
+				7A699F262369701900C5A2E8 /* Frameworks */,
+				7A699F272369701900C5A2E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BasicFramework;
+			productName = BasicFramework;
+			productReference = 7A699F292369701900C5A2E8 /* BasicFramework.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A699F212369701900C5A2E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SH;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = u1city;
+				TargetAttributes = {
+					7A699F282369701900C5A2E8 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = 7A699F242369701900C5A2E8 /* Build configuration list for PBXProject "BasicFramework" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A699F202369701900C5A2E8;
+			productRefGroup = 7A699F2A2369701900C5A2E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A699F282369701900C5A2E8 /* BasicFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A699F272369701900C5A2E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A699F3C2369701B00C5A2E8 /* LaunchScreen.storyboard in Resources */,
+				7A07A37B236A863400074EAF /* DescriptionFile in Resources */,
+				7A699F392369701B00C5A2E8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6153CF497F888D602D1927F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BasicFramework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A699F252369701900C5A2E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AF1F9DE23866BFE008543BC /* SHPhotographCollectionReusableView.m in Sources */,
+				7A07A389236AB6A300074EAF /* SHBaseView.m in Sources */,
+				7A045B2D236FFE9C00481B05 /* SHPhotographViewController.m in Sources */,
+				7A07A392236AD83D00074EAF /* SHMainViewController.m in Sources */,
+				7A33F4AC236BC17900C0D4D6 /* SHMainView.m in Sources */,
+				7A07A386236AB68900074EAF /* SHBaseModel.m in Sources */,
+				7AC6AEBB2387D10700E98524 /* SHPhotographListTableView.m in Sources */,
+				7AC6AEBE2387D44500E98524 /* SHBaseTableViewCell.m in Sources */,
+				7AC6AEC22387D58600E98524 /* SHPhotographListTableViewCell.m in Sources */,
+				7A01016523853E4400232EB1 /* SHBaseCollectionViewCell.m in Sources */,
+				7A15997F238E064C00E5CC94 /* SHPhotographBottomView.m in Sources */,
+				7A38A9CC238B770B0029EE29 /* UIColor+SHCategory.m in Sources */,
+				7A07A379236A831000074EAF /* AppDelegate.m in Sources */,
+				7A07A37E236AB2CD00074EAF /* SHBaseViewController.m in Sources */,
+				7AC6AEB82387CC6200E98524 /* SHPhotographCollectionView.m in Sources */,
+				7AF1F9DA23866A60008543BC /* SHBaseCollectionReusableView.m in Sources */,
+				7A01016823853EED00232EB1 /* SHPhotographCollectionViewCell.m in Sources */,
+				7A07A383236AB65900074EAF /* SHBaseViewModel.m in Sources */,
+				7A09D79C237CF49A0088A571 /* SHPhotographHandler.m in Sources */,
+				7A699F3F2369701B00C5A2E8 /* main.m in Sources */,
+				7A01015E23852F6600232EB1 /* SHPhotographModel.m in Sources */,
+				7A045B302370160A00481B05 /* SHPhotographViewModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7A699F3A2369701B00C5A2E8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A699F3B2369701B00C5A2E8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A699F402369701B00C5A2E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7A699F412369701B00C5A2E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A699F432369701C00C5A2E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB7052120B58EB67550EBB26 /* Pods-BasicFramework.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 48DDDXDVP7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BasicFramework/Other/Configuration/PrefixHeader.pch";
+				INFOPLIST_FILE = BasicFramework/Other/Configuration/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lsh.BasicFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7A699F442369701C00C5A2E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04D4A15A1AD2F475887FC813 /* Pods-BasicFramework.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 48DDDXDVP7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BasicFramework/Other/Configuration/PrefixHeader.pch";
+				INFOPLIST_FILE = BasicFramework/Other/Configuration/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lsh.BasicFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A699F242369701900C5A2E8 /* Build configuration list for PBXProject "BasicFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A699F402369701B00C5A2E8 /* Debug */,
+				7A699F412369701B00C5A2E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A699F422369701C00C5A2E8 /* Build configuration list for PBXNativeTarget "BasicFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A699F432369701C00C5A2E8 /* Debug */,
+				7A699F442369701C00C5A2E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A699F212369701900C5A2E8 /* Project object */;
+}

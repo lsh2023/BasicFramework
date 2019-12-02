@@ -1,0 +1,6 @@
+Info.plist：文件位置修改后，在Build Settings下的Packaging里面修改Info.plist File路径为BasicFramework/Other/Configuration/Info.plist
+PrefixHeader.pch：文件添加后，在Build Settings下的Prefix Header设置为YES，且Prefix Header路径填$(SRCROOT)/BasicFramework/Other/Configuration/PrefixHeader.pch
+Info.plist文件新增权限：
+1、Localized resources can be mixed：YES  语言本地化
+2、Privacy - Photo Library Usage Description：照片库使用说明
+3、Privacy - Photo Library Additions Usage Description：照片库添加用法说明

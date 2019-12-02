@@ -1,0 +1,6 @@
+platform :ios, '8.0'   #当前支持的iOS最低版本
+target 'BasicFramework' do
+pod 'AFNetworking'
+pod 'Masonry' 
+pod 'ReactiveObjC'
+end
