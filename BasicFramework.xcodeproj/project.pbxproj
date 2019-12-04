@@ -23,6 +23,7 @@
 		7A15997F238E064C00E5CC94 /* SHPhotographBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A15997E238E064C00E5CC94 /* SHPhotographBottomView.m */; };
 		7A33F4AC236BC17900C0D4D6 /* SHMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33F4AB236BC17900C0D4D6 /* SHMainView.m */; };
 		7A38A9CC238B770B0029EE29 /* UIColor+SHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A38A9CB238B770B0029EE29 /* UIColor+SHCategory.m */; };
+		7A4A178423978CCC005D4C56 /* SHPhotographEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A178323978CCC005D4C56 /* SHPhotographEditView.m */; };
 		7A699F392369701B00C5A2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A699F382369701B00C5A2E8 /* Assets.xcassets */; };
 		7A699F3C2369701B00C5A2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A699F3A2369701B00C5A2E8 /* LaunchScreen.storyboard */; };
 		7A699F3F2369701B00C5A2E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A699F3E2369701B00C5A2E8 /* main.m */; };
@@ -72,6 +73,8 @@
 		7A33F4AB236BC17900C0D4D6 /* SHMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHMainView.m; sourceTree = "<group>"; };
 		7A38A9CA238B770B0029EE29 /* UIColor+SHCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+SHCategory.h"; sourceTree = "<group>"; };
 		7A38A9CB238B770B0029EE29 /* UIColor+SHCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SHCategory.m"; sourceTree = "<group>"; };
+		7A4A178223978CCC005D4C56 /* SHPhotographEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographEditView.h; sourceTree = "<group>"; };
+		7A4A178323978CCC005D4C56 /* SHPhotographEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographEditView.m; sourceTree = "<group>"; };
 		7A699F292369701900C5A2E8 /* BasicFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A699F2C2369701900C5A2E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7A699F2D2369701900C5A2E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				7AC6AEBA2387D10700E98524 /* SHPhotographListTableView.m */,
 				7AC6AEC02387D58600E98524 /* SHPhotographListTableViewCell.h */,
 				7AC6AEC12387D58600E98524 /* SHPhotographListTableViewCell.m */,
+				7A4A178223978CCC005D4C56 /* SHPhotographEditView.h */,
+				7A4A178323978CCC005D4C56 /* SHPhotographEditView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 			files = (
 				7AF1F9DE23866BFE008543BC /* SHPhotographCollectionReusableView.m in Sources */,
 				7A07A389236AB6A300074EAF /* SHBaseView.m in Sources */,
+				7A4A178423978CCC005D4C56 /* SHPhotographEditView.m in Sources */,
 				7A045B2D236FFE9C00481B05 /* SHPhotographViewController.m in Sources */,
 				7A07A392236AD83D00074EAF /* SHMainViewController.m in Sources */,
 				7A33F4AC236BC17900C0D4D6 /* SHMainView.m in Sources */,

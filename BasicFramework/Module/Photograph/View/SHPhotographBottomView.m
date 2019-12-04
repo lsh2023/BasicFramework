@@ -60,6 +60,15 @@
         [weakSelf.viewModel.actionSubject sendNext:@(PhotographActionSubjectType_Determine)];
     }];
     
+    [RACObserve(self,viewModel.selectAssetLocalIdentifierArray) subscribeNext:^(id  _Nullable x) {
+        weakSelf.editButton.selected = weakSelf.viewModel.selectAssetLocalIdentifierArray.count == 1;
+        weakSelf.previewButton.selected = weakSelf.viewModel.selectAssetLocalIdentifierArray.count > 0;
+        weakSelf.determineButton.selected = weakSelf.viewModel.selectAssetLocalIdentifierArray.count > 0;
+        weakSelf.editButton.userInteractionEnabled = weakSelf.editButton.selected;
+        weakSelf.previewButton.userInteractionEnabled = weakSelf.previewButton.selected;
+        weakSelf.determineButton.userInteractionEnabled = weakSelf.determineButton.selected;
+        [weakSelf.determineButton setTitle:[NSString stringWithFormat:@"确定(%lu)",(unsigned long)weakSelf.viewModel.selectAssetLocalIdentifierArray.count] forState:UIControlStateSelected];
+    }];
 }
 
 - (UIButton *)previewButton {
@@ -67,8 +76,8 @@
         _previewButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _previewButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [_previewButton setTitle:@"预览" forState:UIControlStateNormal];
-        [_previewButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [_previewButton setTitleColor:[UIColor darkTextColor] forState:UIControlStateSelected];
+        [_previewButton setTitleColor:KHexColor(@"999999") forState:UIControlStateNormal];
+        [_previewButton setTitleColor:KHexColor(@"333333") forState:UIControlStateSelected];
     }
     return _previewButton;
 }
@@ -78,8 +87,8 @@
         _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _editButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [_editButton setTitle:@"编辑" forState:UIControlStateNormal];
-        [_editButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [_editButton setTitleColor:[UIColor darkTextColor] forState:UIControlStateSelected];
+        [_editButton setTitleColor:KHexColor(@"999999") forState:UIControlStateNormal];
+        [_editButton setTitleColor:KHexColor(@"333333") forState:UIControlStateSelected];
     }
     return _editButton;
 }

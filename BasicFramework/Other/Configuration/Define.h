@@ -13,7 +13,7 @@
 #define KWeakSelf __weak __typeof(self) weakSelf = self;
 
 /// 十六进制字符串转RGB
-#define KHexColor(c) [UIColor colorWithHexString:(c) alpha:1];
+#define KHexColor(c) [UIColor colorWithHexString:(c) alpha:1]
 
 /// 类识别码
 #define KClassIdentifier NSStringFromClass([self class])

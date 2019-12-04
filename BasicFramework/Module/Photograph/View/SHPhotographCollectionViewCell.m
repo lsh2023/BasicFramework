@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong) UIImageView *imageView;
 @property (nonatomic,strong) UIButton *selectButton;
+@property (nonatomic,copy) NSString *localIdentifier;
 
 @end
 
@@ -35,6 +36,7 @@
 
 - (void)setAsset:(PHAsset *)asset {
     KWeakSelf
+    _localIdentifier = asset.localIdentifier;
     PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc]init];
     // 采取同步获取图片（只获得一次图片）
     imageRequestOptions.synchronous = YES;
@@ -43,11 +45,15 @@
     }];
 }
 
+- (void)setIsSelect:(BOOL)isSelect {
+    self.selectButton.selected = isSelect;
+}
+
 - (void)sh_bindingViewModel {
-//    KWeakSelf
+    KWeakSelf
     [[self.selectButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         x.selected = !x.selected;
-//        [weakSelf.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_SelectPhotograph),weakSelf.indexPath, nil]];
+        [weakSelf.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_SelectPhotograph),weakSelf.localIdentifier, nil]];
     }];
 }
 

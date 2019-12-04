@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) SHPhotographViewModel *viewModel;
 
+@property (nonatomic,assign) BOOL isSelect;
+
 @end
 
 NS_ASSUME_NONNULL_END

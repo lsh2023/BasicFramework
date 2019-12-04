@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SHPhotographListTableView : SHBaseView
 
 /// 设置相册数据源
-/// @param photographArray 相册数组
-- (void)settingPhotographDataSource:(NSMutableArray *)photographArray;
+- (void)settingPhotographDataSource;
 
 @end
 

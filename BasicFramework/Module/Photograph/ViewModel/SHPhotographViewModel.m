@@ -7,6 +7,7 @@
 //
 
 #import "SHPhotographViewModel.h"
+#import "SHPhotographHandler.h"
 
 @implementation SHPhotographViewModel
 
@@ -19,6 +20,26 @@
         _actionSubject = [RACSubject subject];
     }
     return _actionSubject;
+}
+
+- (void)getPhotographData:(void (^)(void))successHandler {
+    [[SHPhotographHandler shareInstance]getPhotographData:^(NSMutableArray * _Nonnull photographArray) {
+        self->_photographArray = photographArray;
+        if (successHandler) {
+            successHandler();
+        }
+    }];
+}
+
+- (NSMutableArray *)selectAssetLocalIdentifierArray {
+    if (!_selectAssetLocalIdentifierArray) {
+        _selectAssetLocalIdentifierArray = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _selectAssetLocalIdentifierArray;
+}
+
++ (BOOL)accessInstanceVariablesDirectly {
+    return NO;
 }
 
 @end

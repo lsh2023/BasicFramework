@@ -12,6 +12,3 @@
 
 @end
 
-@implementation SHPHAssetModel
-
-@end

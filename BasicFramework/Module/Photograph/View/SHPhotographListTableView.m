@@ -14,7 +14,6 @@
 @interface SHPhotographListTableView () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSMutableArray *photographArray;
 @property (nonatomic,strong) SHPhotographViewModel *viewModel;
 
 @end
@@ -38,25 +37,23 @@
   
 }
 
-- (void)settingPhotographDataSource:(NSMutableArray *)photographArray {
-    self.photographArray = photographArray;
+- (void)settingPhotographDataSource {
     [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-   return self.photographArray.count;
+   return self.viewModel.photographArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SHPhotographListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KClassIdentifier forIndexPath:indexPath];
-    SHPhotographModel *photographModel = self.photographArray[indexPath.row];
+    SHPhotographModel *photographModel = self.viewModel.photographArray[indexPath.row];
     cell.photographModel = photographModel;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SHPhotographModel *photographModel = self.photographArray[indexPath.row];
-    [self.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_PhotographList),photographModel, nil]];
+    [self.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_PhotographList),@(indexPath.row), nil]];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

@@ -20,7 +20,6 @@ static NSString *collectionSectionFooter = @"CollectionElementKindSectionFooter"
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) NSMutableArray *photographArray;
-@property (nonatomic,strong) NSMutableArray *selectPhotographArray;
 @property (nonatomic,strong) SHPhotographBottomView *bottomView;
 @property (nonatomic,strong) SHPhotographViewModel *viewModel;
 
@@ -57,9 +56,13 @@ static NSString *collectionSectionFooter = @"CollectionElementKindSectionFooter"
     KWeakSelf
     [self.viewModel.actionSubject subscribeNext:^(RACTuple *tuple) {
         if ([tuple.first intValue] == PhotographActionSubjectType_SelectPhotograph) {
-            NSIndexPath *indexPath = tuple.second;
-            SHPhotographModel *photographModel = weakSelf.photographArray[indexPath.section];
-            [weakSelf.selectPhotographArray addObject:photographModel.fetchResult[indexPath.row]];
+            NSString *localIdentifier = tuple.second;
+            if (![weakSelf.viewModel.selectAssetLocalIdentifierArray containsObject:localIdentifier]) {
+                // mutableArrayValueForKey 使用这种方式添加删除数组数据，数据变化可以被RAC/KVO监听
+                [[weakSelf.viewModel mutableArrayValueForKey:@"selectAssetLocalIdentifierArray"]addObject:localIdentifier];
+            }else {
+                [[weakSelf.viewModel mutableArrayValueForKey:@"selectAssetLocalIdentifierArray"]removeObject:localIdentifier];
+            }
         }
     }];
 }
@@ -77,10 +80,13 @@ static NSString *collectionSectionFooter = @"CollectionElementKindSectionFooter"
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SHPhotographCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:KClassIdentifier forIndexPath:indexPath];
     SHPhotographModel *photographModel = self.photographArray[indexPath.section];
-    cell.asset = photographModel.fetchResult[indexPath.row];
+    PHAsset *asset = photographModel.fetchResult[indexPath.row];
+    cell.asset = asset;
+    cell.viewModel = self.viewModel;
+    cell.isSelect = [self.viewModel.selectAssetLocalIdentifierArray containsObject:asset.localIdentifier];
     return cell;
 }
-
+ 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(nonnull NSString *)kind atIndexPath:(nonnull NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionFooter) {
         SHPhotographCollectionReusableView *collectionReusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:collectionSectionFooter forIndexPath:indexPath];
@@ -113,13 +119,6 @@ static NSString *collectionSectionFooter = @"CollectionElementKindSectionFooter"
         [_collectionView registerClass:[SHPhotographCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:collectionSectionFooter];
     }
     return _collectionView;
-}
-
-- (NSMutableArray *)selectPhotographArray {
-    if (!_selectPhotographArray) {
-        _selectPhotographArray = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _selectPhotographArray;
 }
 
 - (SHPhotographBottomView *)bottomView {

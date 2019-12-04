@@ -21,17 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface SHPHAssetModel : NSObject
-
-/// 照片资产
-@property (nonatomic,strong) PHAsset *asset;
-
-/// 索引路径
-@property (nonatomic,strong) NSIndexPath *indexPath;
-
-/// 是否选中
-@property (nonatomic,assign) BOOL isSelect;
-
-@end
-
 NS_ASSUME_NONNULL_END

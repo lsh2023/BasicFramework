@@ -7,7 +7,6 @@
 //
 
 #import "SHPhotographViewController.h"
-#import "SHPhotographHandler.h"
 #import "SHPhotographModel.h"
 #import "SHPhotographViewModel.h"
 #import "SHPhotographCollectionView.h"
@@ -27,15 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    KWeakSelf
-    [[SHPhotographHandler shareInstance]getPhotographData:^(NSMutableArray * _Nonnull photographArray) {
-        if (photographArray.count > 0) {
-            SHPhotographModel *photographModel = photographArray[0];
-            weakSelf.title = photographModel.localizedTitle;
-            [weakSelf.photographListTableView settingPhotographDataSource:photographArray];
-            [weakSelf.photographCollectionView settingPhotographDataSource:[NSMutableArray arrayWithObject:photographModel]];
-        }
-    }];
     
 }
 
@@ -60,9 +50,20 @@
 
 - (void)sh_bindingViewModel {
     KWeakSelf
+    
+    [self.viewModel getPhotographData:^{
+        if (weakSelf.viewModel.photographArray.count > 0) {
+            SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[0];
+            weakSelf.title = photographModel.localizedTitle;
+            [weakSelf.photographListTableView settingPhotographDataSource];
+            [weakSelf.photographCollectionView settingPhotographDataSource:[NSMutableArray arrayWithObject:photographModel]];
+        }
+    }];
+    
     [self.viewModel.actionSubject subscribeNext:^(RACTuple *tuple) {
         if ([tuple.first intValue] == PhotographActionSubjectType_PhotographList) {
-            SHPhotographModel *photographModel = tuple.second;
+            NSInteger row = [tuple.second integerValue];
+            SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[row];
             weakSelf.title = photographModel.localizedTitle;
             [weakSelf.photographCollectionView settingPhotographDataSource:[NSMutableArray arrayWithObject:photographModel]];
             [UIView animateWithDuration:0.3 animations:^{
