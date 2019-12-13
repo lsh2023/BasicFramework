@@ -4,3 +4,4 @@ Info.plist文件新增权限：
 1、Localized resources can be mixed：YES  语言本地化
 2、Privacy - Photo Library Usage Description：照片库使用说明
 3、Privacy - Photo Library Additions Usage Description：照片库添加用法说明
+4、View controller-based status bar appearance：查看基于控制器的状态栏外观

@@ -31,6 +31,8 @@
 		7AC6AEBB2387D10700E98524 /* SHPhotographListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6AEBA2387D10700E98524 /* SHPhotographListTableView.m */; };
 		7AC6AEBE2387D44500E98524 /* SHBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6AEBD2387D44500E98524 /* SHBaseTableViewCell.m */; };
 		7AC6AEC22387D58600E98524 /* SHPhotographListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6AEC12387D58600E98524 /* SHPhotographListTableViewCell.m */; };
+		7ADE90A1239F713F001864AC /* SHPhotographEditCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADE90A0239F713F001864AC /* SHPhotographEditCollectionViewCell.m */; };
+		7ADE90A4239F8CCB001864AC /* SHPhotographEditHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADE90A3239F8CCB001864AC /* SHPhotographEditHeaderView.m */; };
 		7AF1F9DA23866A60008543BC /* SHBaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1F9D923866A60008543BC /* SHBaseCollectionReusableView.m */; };
 		7AF1F9DE23866BFE008543BC /* SHPhotographCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1F9DD23866BFE008543BC /* SHPhotographCollectionReusableView.m */; };
 		7F4F088835C81E3FDD4ECE99 /* libPods-BasicFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3C4DC1FA25BD2B606932EB /* libPods-BasicFramework.a */; };
@@ -92,6 +94,10 @@
 		7AC6AEC02387D58600E98524 /* SHPhotographListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographListTableViewCell.h; sourceTree = "<group>"; };
 		7AC6AEC12387D58600E98524 /* SHPhotographListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographListTableViewCell.m; sourceTree = "<group>"; };
 		7ACE85FD238CF9FA005D9F3F /* Enum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enum.h; sourceTree = "<group>"; };
+		7ADE909F239F713F001864AC /* SHPhotographEditCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographEditCollectionViewCell.h; sourceTree = "<group>"; };
+		7ADE90A0239F713F001864AC /* SHPhotographEditCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographEditCollectionViewCell.m; sourceTree = "<group>"; };
+		7ADE90A2239F8CCB001864AC /* SHPhotographEditHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHPhotographEditHeaderView.h; sourceTree = "<group>"; };
+		7ADE90A3239F8CCB001864AC /* SHPhotographEditHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHPhotographEditHeaderView.m; sourceTree = "<group>"; };
 		7AE3E426237D2C56004DD41A /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		7AF1F9D823866A60008543BC /* SHBaseCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHBaseCollectionReusableView.h; sourceTree = "<group>"; };
 		7AF1F9D923866A60008543BC /* SHBaseCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHBaseCollectionReusableView.m; sourceTree = "<group>"; };
@@ -160,6 +166,10 @@
 				7AC6AEC12387D58600E98524 /* SHPhotographListTableViewCell.m */,
 				7A4A178223978CCC005D4C56 /* SHPhotographEditView.h */,
 				7A4A178323978CCC005D4C56 /* SHPhotographEditView.m */,
+				7ADE909F239F713F001864AC /* SHPhotographEditCollectionViewCell.h */,
+				7ADE90A0239F713F001864AC /* SHPhotographEditCollectionViewCell.m */,
+				7ADE90A2239F8CCB001864AC /* SHPhotographEditHeaderView.h */,
+				7ADE90A3239F8CCB001864AC /* SHPhotographEditHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -507,6 +517,7 @@
 				7AC6AEBE2387D44500E98524 /* SHBaseTableViewCell.m in Sources */,
 				7AC6AEC22387D58600E98524 /* SHPhotographListTableViewCell.m in Sources */,
 				7A01016523853E4400232EB1 /* SHBaseCollectionViewCell.m in Sources */,
+				7ADE90A1239F713F001864AC /* SHPhotographEditCollectionViewCell.m in Sources */,
 				7A15997F238E064C00E5CC94 /* SHPhotographBottomView.m in Sources */,
 				7A38A9CC238B770B0029EE29 /* UIColor+SHCategory.m in Sources */,
 				7A07A379236A831000074EAF /* AppDelegate.m in Sources */,
@@ -517,6 +528,7 @@
 				7A07A383236AB65900074EAF /* SHBaseViewModel.m in Sources */,
 				7A09D79C237CF49A0088A571 /* SHPhotographHandler.m in Sources */,
 				7A699F3F2369701B00C5A2E8 /* main.m in Sources */,
+				7ADE90A4239F8CCB001864AC /* SHPhotographEditHeaderView.m in Sources */,
 				7A01015E23852F6600232EB1 /* SHPhotographModel.m in Sources */,
 				7A045B302370160A00481B05 /* SHPhotographViewModel.m in Sources */,
 			);

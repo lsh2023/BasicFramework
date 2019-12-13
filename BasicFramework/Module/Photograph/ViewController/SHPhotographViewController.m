@@ -11,11 +11,13 @@
 #import "SHPhotographViewModel.h"
 #import "SHPhotographCollectionView.h"
 #import "SHPhotographListTableView.h"
+#import "SHPhotographEditView.h"
 
 @interface SHPhotographViewController () 
 
 @property (nonatomic,strong) SHPhotographCollectionView *photographCollectionView;
 @property (nonatomic,strong) SHPhotographListTableView *photographListTableView;
+@property (nonatomic,strong) SHPhotographEditView *photographEditView;
 @property (nonatomic,strong) SHPhotographViewModel *viewModel;
 @property (nonatomic,strong) UIButton *leftButton;
 
@@ -34,6 +36,7 @@
     
     [self.view addSubview:self.photographListTableView];
     [self.view addSubview:self.photographCollectionView];
+    [self.view addSubview:self.photographEditView];
     
     [self.photographListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.view);
@@ -42,6 +45,13 @@
     
     [self.photographCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.offset(0);
+        make.width.mas_offset(KScreen_Width);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-KGetSafeAreaInsetsHeight_Bottom);
+    }];
+    
+    [self.photographEditView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(KScreen_Width);
+        make.top.offset(0);
         make.width.mas_offset(KScreen_Width);
         make.bottom.equalTo(self.view.mas_bottom).offset(-KGetSafeAreaInsetsHeight_Bottom);
     }];
@@ -61,18 +71,51 @@
     }];
     
     [self.viewModel.actionSubject subscribeNext:^(RACTuple *tuple) {
-        if ([tuple.first intValue] == PhotographActionSubjectType_PhotographList) {
-            NSInteger row = [tuple.second integerValue];
-            SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[row];
-            weakSelf.title = photographModel.localizedTitle;
-            [weakSelf.photographCollectionView settingPhotographDataSource:[NSMutableArray arrayWithObject:photographModel]];
-            [UIView animateWithDuration:0.3 animations:^{
-                weakSelf.leftButton.alpha = 1;
-                [weakSelf.photographCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.left.offset(0);
+        switch ([tuple.first intValue]) {
+            case PhotographActionSubjectType_PhotographList: {
+                NSInteger row = [tuple.second integerValue];
+                SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[row];
+                weakSelf.title = photographModel.localizedTitle;
+                [weakSelf.photographCollectionView settingPhotographDataSource:[NSMutableArray arrayWithObject:photographModel]];
+                [UIView animateWithDuration:0.3 animations:^{
+                    weakSelf.leftButton.alpha = 1;
+                    [weakSelf.photographCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+                        make.left.offset(0);
+                    }];
+                    [weakSelf.view layoutIfNeeded];
                 }];
-                [weakSelf.view layoutIfNeeded];
-            }];
+            }
+                break;
+            case PhotographActionSubjectType_Preview: {
+                NSString *localIdentifier = tuple.second;
+                weakSelf.photographEditView.localIdentifier = localIdentifier;
+                [UIView animateWithDuration:0.3 animations:^{
+                    weakSelf.navigationController.navigationBar.hidden = YES;
+                    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+                    [weakSelf.photographEditView mas_updateConstraints:^(MASConstraintMaker *make) {
+                        make.left.offset(0);
+                    }];
+                    [weakSelf.view layoutIfNeeded];
+                }];
+            }
+                break;
+            case PhotographActionSubjectType_PhotographEditBack: {
+                [UIView animateWithDuration:0.3 animations:^{
+                    weakSelf.navigationController.navigationBar.hidden = NO;
+                    if (@available(iOS 13.0, *)) {
+                        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDarkContent;
+                    } else {
+                        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+                    }
+                    [weakSelf.photographEditView mas_updateConstraints:^(MASConstraintMaker *make) {
+                        make.left.offset(KScreen_Width);
+                    }];
+                    [weakSelf.view layoutIfNeeded];
+                }];
+            }
+                break;
+            default:
+                break;
         }
     }];
 }
@@ -114,6 +157,13 @@
         _photographListTableView = [[SHPhotographListTableView alloc]initWithViewModel:self.viewModel];
     }
     return _photographListTableView;
+}
+
+- (SHPhotographEditView *)photographEditView {
+    if (!_photographEditView) {
+        _photographEditView = [[SHPhotographEditView alloc]initWithViewModel:self.viewModel];
+    }
+    return _photographEditView;
 }
 
 - (SHPhotographViewModel *)viewModel {

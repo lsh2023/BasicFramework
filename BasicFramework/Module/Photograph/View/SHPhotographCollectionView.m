@@ -86,6 +86,13 @@ static NSString *collectionSectionFooter = @"CollectionElementKindSectionFooter"
     cell.isSelect = [self.viewModel.selectAssetLocalIdentifierArray containsObject:asset.localIdentifier];
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    SHPhotographModel *photographModel = self.photographArray[indexPath.section];
+    PHAsset *asset = photographModel.fetchResult[indexPath.row];
+    RACTuple *tuple = [RACTuple tupleWithObjects:@(PhotographActionSubjectType_Preview),asset.localIdentifier, nil];
+    [self.viewModel.actionSubject sendNext:tuple];
+}
  
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(nonnull NSString *)kind atIndexPath:(nonnull NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionFooter) {
