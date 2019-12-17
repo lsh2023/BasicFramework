@@ -19,6 +19,8 @@
 @implementation SHPhotographCollectionViewCell
 
 - (void)sh_settingView {
+    self.contentView.backgroundColor = [UIColor whiteColor];
+    
     [self.contentView addSubview:self.imageView];
     [self.imageView addSubview:self.selectButton];
     

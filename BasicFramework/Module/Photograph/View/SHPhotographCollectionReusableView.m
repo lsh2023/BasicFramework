@@ -17,6 +17,7 @@
 @implementation SHPhotographCollectionReusableView
 
 - (void)sh_settingView {
+    self.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.textLabel];
     [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);

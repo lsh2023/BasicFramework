@@ -28,6 +28,7 @@
 }
 
 - (void)sh_settingView {
+    self.backgroundColor = [UIColor blackColor];
     [self addSubview:self.collectionView];
     [self addSubview:self.headerView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -71,6 +72,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.pagingEnabled = YES;
+        _collectionView.backgroundColor = [UIColor blackColor];
         [_collectionView registerClass:[SHPhotographEditCollectionViewCell class] forCellWithReuseIdentifier:KClassIdentifier];
     }
     return _collectionView;
