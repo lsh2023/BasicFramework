@@ -42,21 +42,31 @@
 }
 
 - (void)sh_bindingViewModel {
-  
+    KWeakSelf
+    [RACObserve(self.viewModel, selectPhotographArrayRow)subscribeNext:^(id  _Nullable x) {
+        [weakSelf.collectionView reloadData];
+    }];
 }
 
 - (void)setLocalIdentifier:(NSString *)localIdentifier {
-      [self.collectionView reloadData];
+    KWeakSelf
+    SHPhotographModel *photographModel = self.viewModel.photographArray[self.viewModel.selectPhotographArrayRow];
+    [photographModel.fetchResult enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.localIdentifier isEqualToString:localIdentifier]) {
+            [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:idx inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+            *stop = YES;
+        }
+    }];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    SHPhotographModel *photographModel = self.viewModel.photographArray[section];
+    SHPhotographModel *photographModel = self.viewModel.photographArray[self.viewModel.selectPhotographArrayRow];
     return photographModel.fetchResult.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SHPhotographEditCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:KClassIdentifier forIndexPath:indexPath];
-    SHPhotographModel *photographModel = self.viewModel.photographArray[indexPath.section];
+    SHPhotographModel *photographModel = self.viewModel.photographArray[self.viewModel.selectPhotographArrayRow];
     PHAsset *asset = photographModel.fetchResult[indexPath.row];
     cell.asset = asset;
     return cell;

@@ -63,7 +63,7 @@
     
     [self.viewModel getPhotographData:^{
         if (weakSelf.viewModel.photographArray.count > 0) {
-            SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[0];
+            SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[weakSelf.viewModel.selectPhotographArrayRow];
             weakSelf.title = photographModel.localizedTitle;
             [weakSelf.photographListTableView settingPhotographDataSource];
             [weakSelf.photographCollectionView settingPhotographDataSource:[NSMutableArray arrayWithObject:photographModel]];
@@ -73,8 +73,7 @@
     [self.viewModel.actionSubject subscribeNext:^(RACTuple *tuple) {
         switch ([tuple.first intValue]) {
             case PhotographActionSubjectType_PhotographList: {
-                NSInteger row = [tuple.second integerValue];
-                SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[row];
+                SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[weakSelf.viewModel.selectPhotographArrayRow];
                 weakSelf.title = photographModel.localizedTitle;
                 [weakSelf.photographCollectionView settingPhotographDataSource:[NSMutableArray arrayWithObject:photographModel]];
                 [UIView animateWithDuration:0.3 animations:^{

@@ -38,6 +38,13 @@
     return _selectAssetLocalIdentifierArray;
 }
 
+- (NSInteger)selectPhotographArrayRow {
+    if (!_selectPhotographArrayRow) {
+        _selectPhotographArrayRow = 0;
+    }
+    return _selectPhotographArrayRow;
+}
+
 + (BOOL)accessInstanceVariablesDirectly {
     return NO;
 }
