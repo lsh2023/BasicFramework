@@ -26,6 +26,10 @@
     return [super initWithViewModel:viewModel];
 }
 
+- (void)setIsSelect:(BOOL)isSelect {
+    self.selectButton.selected = isSelect;
+}
+
 - (void)sh_settingView {
     self.backgroundColor = KHexColor(@"1A1A1A");
     [self addSubview:self.leftButton];
@@ -54,6 +58,7 @@
     
     [[self.selectButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         x.selected = !x.selected;
+        [weakSelf.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_SelectPhotograph),weakSelf.localIdentifier, nil]];
     }];
 }
 

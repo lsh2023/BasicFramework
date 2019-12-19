@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SHPhotographEditHeaderView : SHBaseView
 
+@property (nonatomic,copy) NSString *localIdentifier;
+@property (nonatomic,assign) BOOL isSelect;
+
 @end
 
 NS_ASSUME_NONNULL_END

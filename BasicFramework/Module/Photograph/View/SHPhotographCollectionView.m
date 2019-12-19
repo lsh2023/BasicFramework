@@ -65,6 +65,11 @@ static NSString *collectionSectionFooter = @"CollectionElementKindSectionFooter"
             }
         }
     }];
+    
+    [RACObserve(self,viewModel.selectAssetLocalIdentifierArray) subscribeNext:^(id  _Nullable x) {
+        [weakSelf.collectionView reloadData];
+    }];
+    
 }
 
 - (void)settingPhotographDataSource:(NSMutableArray *)photographArray {

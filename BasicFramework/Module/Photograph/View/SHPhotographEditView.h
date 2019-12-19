@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString *localIdentifier;
 
+/// 设置相册数据源
+- (void)settingPhotographDataSource;
+
 @end
 
 NS_ASSUME_NONNULL_END

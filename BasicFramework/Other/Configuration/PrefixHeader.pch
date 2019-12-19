@@ -17,6 +17,7 @@
 #import <ReactiveObjC.h>
 
 #import "UIColor+SHCategory.h"
+#import "NSObject+SHCategory.h"
 
 #import "Define.h"
 #import "Enum.h"

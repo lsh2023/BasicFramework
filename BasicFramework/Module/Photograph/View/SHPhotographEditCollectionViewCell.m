@@ -52,7 +52,7 @@
         UIImage *image = [UIImage imageWithData:imageData];
         self.imageView.image = image;
         
-        CGFloat currentW = self.contentView.frame.size.width;
+        CGFloat currentW = KScreen_Width-2;
         CGFloat currentH = self.contentView.frame.size.height;
         
         CGFloat maximumHeight;

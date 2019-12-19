@@ -66,6 +66,7 @@
             SHPhotographModel *photographModel = weakSelf.viewModel.photographArray[weakSelf.viewModel.selectPhotographArrayRow];
             weakSelf.title = photographModel.localizedTitle;
             [weakSelf.photographListTableView settingPhotographDataSource];
+            [weakSelf.photographEditView settingPhotographDataSource];
             [weakSelf.photographCollectionView settingPhotographDataSource:[NSMutableArray arrayWithObject:photographModel]];
         }
     }];

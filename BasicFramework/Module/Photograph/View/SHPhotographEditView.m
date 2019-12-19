@@ -17,6 +17,7 @@
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) SHPhotographViewModel *viewModel;
 @property (nonatomic,strong) SHPhotographEditHeaderView *headerView;
+@property (nonatomic,assign) CGFloat startOffsetX;
 
 @end
 
@@ -44,7 +45,9 @@
 - (void)sh_bindingViewModel {
     KWeakSelf
     [RACObserve(self.viewModel, selectPhotographArrayRow)subscribeNext:^(id  _Nullable x) {
-        [weakSelf.collectionView reloadData];
+        if (weakSelf.viewModel.photographArray.count > 0) {
+            [weakSelf.collectionView reloadData];
+        }
     }];
 }
 
@@ -53,10 +56,16 @@
     SHPhotographModel *photographModel = self.viewModel.photographArray[self.viewModel.selectPhotographArrayRow];
     [photographModel.fetchResult enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.localIdentifier isEqualToString:localIdentifier]) {
-            [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:idx inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
+            [weakSelf.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+            [weakSelf selectedAsset:idx];
             *stop = YES;
         }
     }];
+}
+
+- (void)settingPhotographDataSource {
+    [self.collectionView reloadData];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -72,12 +81,49 @@
     return cell;
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    _startOffsetX = scrollView.contentOffset.x;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat currentOffsetX = scrollView.contentOffset.x;
+    CGFloat currentPageIndex = currentOffsetX / KScreen_Width;
+    if (![NSObject isInteger:@(currentPageIndex)]) {
+        if (_startOffsetX < currentOffsetX) { // 左滑图右
+            if (currentOffsetX - _startOffsetX > KScreen_Width/2) { // 下一个的索引
+                [self selectedAsset:currentPageIndex + 1];
+            }else { // 当前的索引
+                [self selectedAsset:currentPageIndex];
+            }
+        }else if (_startOffsetX > currentOffsetX) { // 右滑图左
+            if (_startOffsetX - currentOffsetX > KScreen_Width/2) { // 下一个的索引
+                [self selectedAsset:currentPageIndex];
+            }else { // 当前的索引
+                [self selectedAsset:currentPageIndex + 1];
+            }
+        }else { // 相等 当前的索引
+            [self selectedAsset:currentPageIndex];
+        }
+    }else {
+        [self selectedAsset:currentPageIndex];
+    }
+}
+
+- (void)selectedAsset:(NSInteger)pageIndex {
+    SHPhotographModel *photographModel = self.viewModel.photographArray[self.viewModel.selectPhotographArrayRow];
+    if (pageIndex < photographModel.fetchResult.count) {
+        PHAsset *asset = photographModel.fetchResult[pageIndex];
+        self.headerView.localIdentifier = asset.localIdentifier;
+        self.headerView.isSelect = [self.viewModel.selectAssetLocalIdentifierArray containsObject:asset.localIdentifier];
+    }
+}
+
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
         flowLayout.itemSize = CGSizeMake(KScreen_Width,KScreen_Height-KGetSafeAreaInsetsHeight_Bottom);
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        flowLayout.minimumLineSpacing = 0.001;
+        flowLayout.minimumLineSpacing = 0;
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
