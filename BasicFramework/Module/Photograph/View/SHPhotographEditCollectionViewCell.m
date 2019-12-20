@@ -51,20 +51,10 @@
     if (imageData) {
         UIImage *image = [UIImage imageWithData:imageData];
         self.imageView.image = image;
-        
-        CGFloat currentW = KScreen_Width-2;
-        CGFloat currentH = self.contentView.frame.size.height;
-        
-        CGFloat maximumHeight;
-        if (image.size.width < image.size.height) {
-            maximumHeight = currentH * (currentW/currentH);
-        }else {
-            maximumHeight = currentW * (currentW/currentH);
-        }
-        
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.lessThanOrEqualTo(@(currentW));
-            make.height.lessThanOrEqualTo(@(maximumHeight));
+            make.width.offset(self.contentView.frame.size.width);
+            make.height.offset(self.contentView.frame.size.height);
         }];
     }
 }

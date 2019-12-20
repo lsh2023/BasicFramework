@@ -49,15 +49,15 @@
 - (void)sh_bindingViewModel {
     KWeakSelf
     [[self.previewButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf.viewModel.actionSubject sendNext:@(PhotographActionSubjectType_Preview)];
+        [weakSelf.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_Preview), nil]];
     }];
     
     [[self.editButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf.viewModel.actionSubject sendNext:@(PhotographActionSubjectType_Edit)];
+        [weakSelf.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_Edit), nil]];
     }];
     
     [[self.determineButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf.viewModel.actionSubject sendNext:@(PhotographActionSubjectType_Determine)];
+        [weakSelf.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_Determine), nil]];
     }];
     
     [RACObserve(self,viewModel.selectAssetLocalIdentifierArray) subscribeNext:^(id  _Nullable x) {
