@@ -114,6 +114,10 @@
                 }];
             }
                 break;
+            case PhotographActionSubjectType_Determine: {
+                NSLog(@"选中资源本地标识符数组：%@",self.viewModel.selectAssetLocalIdentifierArray);
+            }
+                break;
             default:
                 break;
         }

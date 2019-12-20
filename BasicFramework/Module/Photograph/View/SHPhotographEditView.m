@@ -82,7 +82,7 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
                             [weakSelf.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
-                            [weakSelf selectedAsset:secondIdx];
+                            [weakSelf selectedAsset:0];
                         });
                     }
                 }
@@ -115,6 +115,10 @@
     }
     cell.asset = asset;
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.headerView.hidden = !self.headerView.hidden;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {

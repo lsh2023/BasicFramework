@@ -31,8 +31,8 @@
     [self.selectButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imageView.mas_top).offset(5);
         make.right.equalTo(self.imageView.mas_right).offset(-5);
-        make.width.mas_offset(self.selectButton.imageView.image.size.width);
-        make.height.mas_offset(self.selectButton.imageView.image.size.height);
+        make.width.mas_offset(self.selectButton.currentBackgroundImage.size.width);
+        make.height.mas_offset(self.selectButton.currentBackgroundImage.size.height);
     }];
 }
 
@@ -57,6 +57,19 @@
         x.selected = !x.selected;
         [weakSelf.viewModel.actionSubject sendNext:[RACTuple tupleWithObjects:@(PhotographActionSubjectType_SelectPhotograph),weakSelf.localIdentifier, nil]];
     }];
+    
+    [RACObserve(self.selectButton, selected) subscribeNext:^(id  _Nullable x) {
+        if (weakSelf.selectButton.selected) {
+            [weakSelf.viewModel.selectAssetLocalIdentifierArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj isEqualToString:weakSelf.localIdentifier]) {
+                    [weakSelf.selectButton setTitle:[NSString stringWithFormat:@"%ld",idx + 1] forState:UIControlStateNormal];
+                    *stop = YES;
+                }
+            }];
+        }else {
+            [weakSelf.selectButton setTitle:@"" forState:UIControlStateNormal];
+        }
+    }];
 }
 
 - (UIImageView *)imageView {
@@ -70,8 +83,9 @@
 - (UIButton *)selectButton {
     if (!_selectButton) {
         _selectButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_selectButton setImage:[UIImage imageNamed:@"img_unSelect"] forState:UIControlStateNormal];
-        [_selectButton setImage:[UIImage imageNamed:@"img_select"] forState:UIControlStateSelected];
+        [_selectButton setBackgroundImage:[UIImage imageNamed:@"img_unSelect"] forState:UIControlStateNormal];
+        [_selectButton setBackgroundImage:[UIImage imageNamed:@"img_select"] forState:UIControlStateSelected];
+        [_selectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return _selectButton;
 }
