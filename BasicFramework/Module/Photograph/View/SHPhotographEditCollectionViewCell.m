@@ -8,8 +8,9 @@
 
 #import "SHPhotographEditCollectionViewCell.h"
 
-@interface SHPhotographEditCollectionViewCell ()
+@interface SHPhotographEditCollectionViewCell () <UIScrollViewDelegate>
 
+@property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic,strong) UIImageView *imageView;
 
 @end
@@ -17,11 +18,10 @@
 @implementation SHPhotographEditCollectionViewCell
 
 - (void)sh_settingView {
+    self.backgroundColor = [UIColor blackColor];
     self.contentView.backgroundColor = [UIColor blackColor];
-    [self.contentView addSubview:self.imageView];
-    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.contentView);
-    }];
+    [self.contentView addSubview:self.scrollView];
+    [self.scrollView addSubview:self.imageView];
 }
 
 - (void)sh_bindingViewModel {
@@ -51,18 +51,73 @@
     if (imageData) {
         UIImage *image = [UIImage imageWithData:imageData];
         self.imageView.image = image;
-        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.offset(self.contentView.frame.size.width);
-            make.height.offset(self.contentView.frame.size.height);
+        CGFloat imageScale = image.size.width / image.size.height;
+        CGFloat maxScale = KScreen_Width / KScreen_Height;
+        CGFloat imageW,imageH;
+        if (imageScale < maxScale) {
+            CGFloat scale = KScreen_Height/image.size.height;
+            imageW = scale * image.size.width;
+            imageH = KScreen_Height;
+        }else {
+            CGFloat scale = KScreen_Width/image.size.width;
+            imageW =  KScreen_Width;
+            imageH = scale * image.size.height;
+        }
+        
+        [self.scrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.contentView);
         }];
+        [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.scrollView);
+            make.width.lessThanOrEqualTo(@(imageW));
+            make.height.lessThanOrEqualTo(@(imageH));
+        }];
+        
+//        [self.scrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.center.equalTo(self.contentView);
+//            make.width.height.equalTo(self.imageView);
+//        }];
+        
     }
 }
 
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.imageView;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    
+//    CGRect frame = self.imageView.frame;
+//
+//    frame.origin.y = (self.scrollView.frame.size.height - self.imageView.frame.size.height) > 0 ? (self.scrollView.frame.size.height - self.imageView.frame.size.height) * 0.5 : 0;
+//    frame.origin.x = (self.scrollView.frame.size.width - self.imageView.frame.size.width) > 0 ? (self.scrollView.frame.size.width - self.imageView.frame.size.width) * 0.5 : 0;
+//    self.imageView.frame = frame;
+//
+//    self.scrollView.contentSize = CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height);
+    
+//    [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.scrollView).centerOffset(CGPointMake(-600, -600));
+//    }];
+}
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc]init];
+        _scrollView.backgroundColor = [UIColor blackColor];
+        _scrollView.delegate = self;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        //        _scrollView.scrollEnabled = NO;
+        _scrollView.minimumZoomScale = 1;
+        _scrollView.maximumZoomScale = 5;
+    }
+    return _scrollView;
+}
 
 - (UIImageView *)imageView {
     if (!_imageView) {
         _imageView = [[UIImageView alloc]init];
+        _imageView.userInteractionEnabled = YES;
     }
     return _imageView;
 }

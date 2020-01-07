@@ -63,11 +63,13 @@
     
     [RACObserve(self.selectButton, selected) subscribeNext:^(id  _Nullable x) {
         if (weakSelf.selectButton.selected) {
-            [weakSelf.viewModel.selectAssetLocalIdentifierArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([obj isEqualToString:weakSelf.localIdentifier]) {
-                    [weakSelf.selectButton setTitle:[NSString stringWithFormat:@"%ld",idx + 1] forState:UIControlStateNormal];
-                    *stop = YES;
-                }
+            [RACObserve(weakSelf.viewModel, selectAssetLocalIdentifierArray) subscribeNext:^(id  _Nullable x) {
+                [weakSelf.viewModel.selectAssetLocalIdentifierArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if ([obj isEqualToString:weakSelf.localIdentifier]) {
+                        [weakSelf.selectButton setTitle:[NSString stringWithFormat:@"%ld",idx + 1] forState:UIControlStateNormal];
+                        *stop = YES;
+                    }
+                }];
             }];
         }else {
             [weakSelf.selectButton setTitle:@"" forState:UIControlStateNormal];
